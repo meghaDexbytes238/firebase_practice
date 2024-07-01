@@ -1,0 +1,93 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter --no-color run --machine --track-widget-creation --device-id=adb-64c35f8c0121-SOgFCB._adb-tls-connect._tcp. --start-paused --dart-define=flutter.inspector.structuredErrors=true lib/main.dart
+
+## exception
+
+FileSystemException: FileSystemException: Cannot open file, path = '/Users/ndbit03/.dart-tool/dart-flutter-telemetry-session.json' (OS Error: No space left on device, errno = 28)
+
+```
+#0      _File.throwIfError (dart:io/file_impl.dart:675:7)
+#1      _File.openSync (dart:io/file_impl.dart:490:5)
+#2      _File.writeAsBytesSync (dart:io/file_impl.dart:644:31)
+#3      _File.writeAsStringSync (dart:io/file_impl.dart:668:5)
+#4      ForwardingFile.writeAsStringSync (package:file/src/forwarding/forwarding_file.dart:150:16)
+#5      Session.getSessionId (package:unified_analytics/src/session.dart:59:17)
+#6      UserProperty._toMap (package:unified_analytics/src/user_property.dart:63:31)
+#7      UserProperty.preparePayload (package:unified_analytics/src/user_property.dart:50:47)
+#8      generateRequestBody (package:unified_analytics/src/utils.dart:109:39)
+#9      AnalyticsImpl.send (package:unified_analytics/src/analytics.dart:599:18)
+#10     FlutterCommand._sendPostUsage (package:flutter_tools/src/runner/flutter_command.dart:1621:15)
+#11     FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1394:13)
+<asynchronous suspension>
+#12     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+<asynchronous suspension>
+#13     CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+<asynchronous suspension>
+#14     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:355:9)
+<asynchronous suspension>
+#15     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+<asynchronous suspension>
+#16     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:295:5)
+<asynchronous suspension>
+#17     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:119:9)
+<asynchronous suspension>
+#18     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+<asynchronous suspension>
+#19     main (package:flutter_tools/executable.dart:90:3)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 3.19.4, on macOS 14.1.1 23B81 darwin-x64, locale en-IN)
+    • Flutter version 3.19.4 on channel stable at /Users/ndbit03/android_studio_project/flutter_sdk/flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 68bfaea224 (8 weeks ago), 2024-03-20 15:36:31 -0700
+    • Engine revision a5c24f538d
+    • Dart version 3.3.2
+    • DevTools version 2.31.1
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 33.0.2)
+    • Android SDK at /Users/ndbit03/Library/Android/sdk
+    • Platform android-34, build-tools 33.0.2
+    • Java binary at: /Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 17.0.6+0-17.0.6b802.4-9586694)
+    • All Android licenses accepted.
+
+[!] Xcode - develop for iOS and macOS (Xcode 15.1)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Build 15C65
+    ✗ Unable to get list of installed Simulator runtimes.
+    • CocoaPods version 1.15.2
+
+[✓] Chrome - develop for the web
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[✓] Android Studio (version 2022.2)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    • Java version OpenJDK Runtime Environment (build 17.0.6+0-17.0.6b802.4-9586694)
+
+[✓] VS Code (version 1.89.0)
+    • VS Code at /Applications/Visual Studio Code.app/Contents
+    • Flutter extension version 3.88.0
+
+[✓] Connected device (4 available)
+    • M2010J19CI (mobile)        • adb-64c35f8c0121-SOgFCB._adb-tls-connect._tcp. • android-arm64  • Android 12 (API 31)
+    • Dexbytes’s iPhone (mobile) • e35064bbfe83306a9312abf7d8c509557167958d       • ios            • iOS 15.8 19H370
+    • macOS (desktop)            • macos                                          • darwin-x64     • macOS 14.1.1 23B81 darwin-x64
+    • Chrome (web)               • chrome                                         • web-javascript • Google Chrome 124.0.6367.208
+
+[✓] Network resources
+    • All expected network resources are available.
+
+! Doctor found issues in 1 category.
+```
